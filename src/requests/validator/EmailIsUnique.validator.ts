@@ -24,7 +24,7 @@ export class EmailIsUniqueValidator implements ValidatorConstraintInterface {
 }
 
 export const EmailIsUnique = (validationOptions: ValidationOptions) => {
-  return (object: Object, prop: string) => {
+  return (object: object, prop: string) => {
     registerDecorator({
       target: object.constructor,
       propertyName: prop,
