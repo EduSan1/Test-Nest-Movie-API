@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { UserEntity } from 'src/entities/user.entity';
 
 @Injectable()
 export class UserRepository {
-  private users = [];
+  private users : UserEntity[] = [];
 
-  async save(userData) {
+  async save(userData : UserEntity) {
     this.users.push(userData);
-    return 'User Created!!!s';
+    return userData;
   }
 
   async find() {
