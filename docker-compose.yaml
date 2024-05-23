@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  pgdb:
+    image: postgres
+    container_name: movie_store
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ygt546der
+    ports:
+      - 5432:5432
+    volumes:
+      - ./15/data:/var/lib/postgresql/data
+      - /dumps
