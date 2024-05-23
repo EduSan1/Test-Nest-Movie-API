@@ -18,6 +18,7 @@ export class EmailIsUniqueValidator implements ValidatorConstraintInterface {
     value: any,
     validationArguments?: ValidationArguments,
   ): Promise<boolean> {
+    //TODO: mudar isso para service de user
     const userExist = await this.repository.findByEmail(value);
     return !userExist;
   }
