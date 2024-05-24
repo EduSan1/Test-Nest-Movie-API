@@ -5,10 +5,16 @@ import { UserEntity } from 'src/infra/typeorm/entities/user.entity';
 import { UserRepository } from 'src/infra/typeorm/repositories/user.repository';
 import { EmailIsUniqueValidator } from 'src/application/requests/users/validator/EmailIsUnique.validator';
 import { UserService } from 'src/application/useCases/user/user.service';
+import { LoginUseCase } from 'src/application/useCases/user/login.usecase';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],
   controllers: [UserController],
-  providers: [UserRepository,UserService,EmailIsUniqueValidator],
+  providers: [
+    UserRepository,
+    UserService,
+    EmailIsUniqueValidator,
+    LoginUseCase
+  ],
 })
 export class UserModule {}

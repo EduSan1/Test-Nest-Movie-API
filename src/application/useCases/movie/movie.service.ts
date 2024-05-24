@@ -12,8 +12,6 @@ export class MovieService {
     ) {}
 
     async save(createMovieRequest: CreateMovieDTO) {
-        console.log(createMovieRequest)
-
         const movie = new MovieEntity();
         movie.title = createMovieRequest.title;
         movie.ageGroup = createMovieRequest.ageGroup;

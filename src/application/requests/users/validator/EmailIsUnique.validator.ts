@@ -17,7 +17,6 @@ export class EmailIsUniqueValidator implements ValidatorConstraintInterface {
     value: any
   ): Promise<boolean> {
     const userExist = await this.repository.findByEmail(value);
-    console.log(userExist)
     return !userExist;
   }
 }
