@@ -2,11 +2,11 @@ version: '3.5'
 services:
   pgdb:
     image: postgres
-    container_name: movie_store
+    container_name: $(CONTAINER_NAME)
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: ygt546der
+      POSTGRES_USER: $(DB_NAME)
+      POSTGRES_PASSWORD: $(DB_PASSWORD)
     ports:
       - 5432:5432
     volumes:
