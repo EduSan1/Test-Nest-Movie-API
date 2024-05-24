@@ -1,21 +1,19 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({name: 'users'})
-export class UserEntity {
+@Entity({name: 'movies'})
+export class MovieEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id : string;
 
-    @Column({length: 150, nullable: false})
-    name : string;
+    @Column({length: 200, nullable: false})
+    title : string;
 
+    @Column({length: 15, nullable: false})
+    ageGroup : string
 
-    @Column({length: 70, nullable: false})
-    email : string;
-
-
-    @Column({length: 255, nullable: false})
-    password : string;
+    @Column({nullable: false})
+    releaseDate : Date
 
     @CreateDateColumn()
     createdAt : string;
