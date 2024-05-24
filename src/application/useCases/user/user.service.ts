@@ -4,7 +4,6 @@ import { UserEntity } from "src/infra/typeorm/entities/user.entity";
 import { CreateUserDTO } from "src/application/requests/users/CreateUser.dto";
 import { UpdateUserDTO } from "src/application/requests/users/UpdateUser.dto";
 import { Repository } from "typeorm";
-import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class UserService {
@@ -22,13 +21,13 @@ export class UserService {
         const userEntity = new UserEntity();
         userEntity.email = createUserData.email;
         userEntity.name = createUserData.name;
+
         userEntity.password = createUserData.password;
 
         return await this.userRepository.save(userEntity);
     }
 
-    async findById(id: uuid) : Promise<UserEntity> {
-        console.log(id)
+    async findById(id: string) : Promise<UserEntity> {
         const user = await this.userRepository.findOne({where : {id: id.toString()}});
         if (!user)
             throw new NotFoundException('User with id ${id} not found')
@@ -36,8 +35,7 @@ export class UserService {
         return user
     }
 
-    async update(userId: uuid, updateUser: UpdateUserDTO) {
-        console.log(userId)
+    async update(userId: string, updateUser: UpdateUserDTO) {
         const user: UserEntity = await this.findById(userId);
 
         user.name = updateUser.name;
