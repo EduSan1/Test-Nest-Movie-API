@@ -5,8 +5,8 @@ services:
     container_name: movie-store-postgres
     restart: always
     environment:
-      POSTGRES_USER: $(DB_NAME)
-      POSTGRES_PASSWORD: $(DB_PASSWORD)
+      POSTGRES_USER: db_movie_store
+      POSTGRES_PASSWORD: kmasd812hnf87ds&vf$
     ports:
       - 5432:5432
     volumes:
