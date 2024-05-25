@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from "@nestjs/common";
 import {Request} from 'express';
-import { UserPayload } from "src/application/useCases/user/auth/UserPayload";
+import { UserPayload } from "src/application/services/user/auth/UserPayload";
 import { JwtService } from '@nestjs/jwt';
 
 interface RequestWithUser extends Request {

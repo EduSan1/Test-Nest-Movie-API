@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Param, Post, Put, UseGuards, UseInterceptors } from '@nestjs/common';
 import { CreateUserDTO } from 'src/application/requests/users/CreateUser.dto';
 import { UpdateUserDTO } from 'src/application/requests/users/UpdateUser.dto';
-import { UserService } from 'src/application/useCases/user/user.service';
+import { UserService } from 'src/application/services/user/user.service';
 import { ListUserDTO } from 'src/application/responses/user/ListUser.dto';
 import { HashPassWordPipe } from '../pipe/hashPassword.pipe';
-import { LoginUseCase } from 'src/application/useCases/user/auth/login.usecase';
+import { LoginUseCase } from 'src/application/services/user/auth/login.usecase';
 import { LoginUserDTO } from 'src/application/requests/users/LoginRequest.dto';
 import { AuthGuard } from '../guard/auth.guard';
 import { CacheInterceptor } from '@nestjs/cache-manager';

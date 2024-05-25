@@ -30,7 +30,7 @@ export class UserService {
     async findById(id: string) : Promise<UserEntity> {
         const user = await this.userRepository.findOne({where : {id: id}});
         if (!user)
-            throw new NotFoundException('User with id ${id} not found')
+            throw new NotFoundException(`User with id ${id} not found`)
 
         return user
     }
@@ -47,7 +47,7 @@ export class UserService {
         const user = await this.userRepository.findOne({where : {email: Like(email)}});
 
         if (user === null)
-            throw new NotFoundException('User with email :email not found');
+            throw new NotFoundException(`User with email ${email} not found`);
         
         return user
     }

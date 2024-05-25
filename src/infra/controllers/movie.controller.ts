@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
-import { MovieService } from 'src/application/useCases/movie/movie.service';
+import { MovieService } from 'src/application/services/movie/movie.service';
 import { MovieResponse } from 'src/application/responses/movie/MovieResponse.dto';
 import { AuthGuard } from '../guard/auth.guard';
 import { MovieEntity } from '../typeorm/entities/movie.entity';

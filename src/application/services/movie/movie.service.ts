@@ -27,7 +27,7 @@ export class MovieService {
     async findById(id: string) {
         const movie = await this.movieRepository.findOne({where : {id: id.toString()}});
         if (!movie)
-            throw new NotFoundException('Movie with id ${id} not found')
+            throw new NotFoundException(`Movie with id ${id} not found`)
 
         return movie
     }
