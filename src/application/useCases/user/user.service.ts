@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { UserEntity } from "src/infra/typeorm/entities/user.entity";
 import { CreateUserDTO } from "src/application/requests/users/CreateUser.dto";
 import { UpdateUserDTO } from "src/application/requests/users/UpdateUser.dto";
-import { Repository } from "typeorm";
+import { Repository, Like } from "typeorm";
 
 @Injectable()
 export class UserService {
@@ -28,7 +28,7 @@ export class UserService {
     }
 
     async findById(id: string) : Promise<UserEntity> {
-        const user = await this.userRepository.findOne({where : {id: id.toString()}});
+        const user = await this.userRepository.findOne({where : {id: id}});
         if (!user)
             throw new NotFoundException('User with id ${id} not found')
 
@@ -41,5 +41,14 @@ export class UserService {
         user.name = updateUser.name;
 
         return await this.userRepository.save(user);
+    }
+
+    async findByEmail(email: string) {
+        const user = await this.userRepository.findOne({where : {email: Like(email)}});
+
+        if (user === null)
+            throw new NotFoundException('User with email :email not found');
+        
+        return user
     }
 }

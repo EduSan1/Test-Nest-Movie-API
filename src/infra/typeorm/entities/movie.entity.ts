@@ -9,8 +9,8 @@ export class MovieEntity {
     @Column({length: 200, nullable: false})
     title : string;
 
-    @Column({length: 15, nullable: false})
-    ageGroup : string
+    @Column({length: 600, nullable: false})
+    description : string
 
     @Column({nullable: false})
     releaseDate : Date
